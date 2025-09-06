@@ -11,6 +11,32 @@ Gain more practical experience by using this repository that contains a Python W
 1. Enable your [GitHub Copilot service](https://github.com/github-copilot/signup)
 1. Open [this repository with Codespaces](https://codespaces.new/MicrosoftDocs/mslearn-copilot-codespaces-python)
 
+## Getting Started
+
+Follow these steps to run the Travel Weather API locally:
+
+1. **Clone the repository**  
+   ```sh
+   git clone https://github.com/MicrosoftDocs/mslearn-advanced-copilot.git
+   cd mslearn-advanced-copilot
+   ```
+
+2. **Install dependencies**  
+   It’s recommended to use a virtual environment:
+   ```sh
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+3. **Run the API server**  
+   ```sh
+   uvicorn main:app --reload
+   ```
+
+4. **Access the API documentation**  
+   Open your browser and go to [http://localhost:8000/docs](http://localhost:8000/docs) to explore and test the endpoints.
+
 ## 💪🏽 Exercise
 The current API is not exposing country/{country} which needs to be implemented to list cities. The route should allow only GET HTTP requests with a JSON response providing information from the historical high and low for that country, city, and given month.
 

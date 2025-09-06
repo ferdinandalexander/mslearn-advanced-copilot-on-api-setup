@@ -3,6 +3,7 @@ from os.path import dirname, abspath, join
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi import HTTPException
 
 
 current_dir = dirname(abspath(__file__))
@@ -25,7 +26,12 @@ def root():
     """
     return RedirectResponse(url='/docs', status_code=301)
 
-
+@app.get('/countries/{country}/cities')
+def cities(country: str):
+    if country not in data:
+         raise HTTPException(status_code=404, detail="Country not found")
+    return list(data[country].keys())
+    
 @app.get('/countries')
 def countries():
     return list(data.keys())
